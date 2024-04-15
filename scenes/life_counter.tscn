@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgveh4coxodjk"]
+
+[ext_resource type="FontFile" uid="uid://dtilomcy6agxj" path="res://assets/Fonts/Raw/CC Wild Words Roman.ttf" id="1_ffs1i"]
+[ext_resource type="Script" path="res://scenes/life_label.gd" id="1_vvywg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_20hmn"]
+font = ExtResource("1_ffs1i")
+font_size = 40
+
+[node name="GUI" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LifeLabel" type="Label" parent="."]
+layout_mode = 2
+text = "LIfes: 100"
+label_settings = SubResource("LabelSettings_20hmn")
+script = ExtResource("1_vvywg")

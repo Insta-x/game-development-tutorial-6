@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpc4w2wyqgclg"]
+
+[ext_resource type="FontFile" uid="uid://dtilomcy6agxj" path="res://assets/Fonts/Raw/CC Wild Words Roman.ttf" id="1_5ydim"]
+[ext_resource type="Script" path="res://scenes/new_game_button.gd" id="2_khy6e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u8p8l"]
+font = ExtResource("1_5ydim")
+font_size = 50
+
+[node name="StageSelect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.176471, 0.529412, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -35.0
+offset_right = 246.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Select Stage"
+label_settings = SubResource("LabelSettings_u8p8l")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Level1" type="LinkButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_5ydim")
+theme_override_font_sizes/font_size = 50
+text = "Level 1"
+script = ExtResource("2_khy6e")
+scene_to_load = "Level 1"
+
+[node name="Level2" type="LinkButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_5ydim")
+theme_override_font_sizes/font_size = 50
+text = "Level 2"
+script = ExtResource("2_khy6e")
+scene_to_load = "Level 2"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level1" to="VBoxContainer/HBoxContainer/Level1" method="_on_New_Game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level2" to="VBoxContainer/HBoxContainer/Level2" method="_on_New_Game_pressed"]
