@@ -8,6 +8,7 @@ const UP = Vector2(0, -1)
 
 @onready var animator = self.get_node("Animator")
 @onready var sprite = self.get_node("Sprite2D")
+@onready var walking_particles: GPUParticles2D = $WalkingParticles
 
 
 func get_input():
@@ -39,3 +40,8 @@ func _process(delta):
 			sprite.flip_h = true
 	else:
 		animator.play("Idle")
+	
+	if is_on_floor() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+		walking_particles.set_emitting(true)
+	else:
+		walking_particles.set_emitting(false)

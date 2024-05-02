@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjokp2eao0ivr"]
 
-[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://2p7jqsibkbae" path="res://scenes/Player.tscn" id="1"]
 [ext_resource type="TileSet" uid="uid://3kxtye3s8g30" path="res://assets/Tileset/StoneWorld.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://q73idihuyqu" path="res://assets/Familiar Looking Rocket.png" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/Area Trigger.tscn" id="4"]

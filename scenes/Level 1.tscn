@@ -1,10 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsr65nnwtbs5i"]
+[gd_scene load_steps=8 format=3 uid="uid://dsr65nnwtbs5i"]
 
-[ext_resource type="PackedScene" path="res://scenes/Player.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://2p7jqsibkbae" path="res://scenes/Player.tscn" id="1"]
 [ext_resource type="TileSet" uid="uid://3kxtye3s8g30" path="res://assets/Tileset/StoneWorld.tres" id="2"]
 [ext_resource type="Texture2D" uid="uid://q73idihuyqu" path="res://assets/Familiar Looking Rocket.png" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/Area Trigger.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://cgveh4coxodjk" path="res://scenes/life_counter.tscn" id="5_dug3f"]
+[ext_resource type="PackedScene" uid="uid://crb5afk50goa8" path="res://scenes/Spawner.tscn" id="6_2hpx0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gvkdw"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2000, 1, 1)
+angle_min = 45.0
+angle_max = 45.0
+direction = Vector3(-1, 0, 0)
+spread = 20.0
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+gravity = Vector3(-500, 500, 0)
+scale_min = 5.0
+scale_max = 15.0
+color = Color(0.662745, 0.662745, 0.662745, 1)
 
 [node name="Level 1" type="Node2D"]
 
@@ -32,3 +48,16 @@ scale = Vector2(7.65, 0.1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("5_dug3f")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(1700, -200)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_gvkdw")
+lifetime = 4.0
+speed_scale = 0.5
+visibility_rect = Rect2(-2000, -1000, 4000, 1500)
+
+[node name="Spawner" parent="." instance=ExtResource("6_2hpx0")]
+position = Vector2(1494, 613)
+spawn_rate = 2.0
